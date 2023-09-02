@@ -29,9 +29,6 @@ const handleCategory = async () => {
   
     prevClickedSortedId = categoryId;
   
-    // changed here======================================
-  
-   
   
     const cardContainer = document.getElementById("news-card-container");
     cardContainer.innerHTML = "";
@@ -70,7 +67,7 @@ const handleCategory = async () => {
             const div = document.createElement("div");
             div.innerHTML = `
               <div class="card m-0 bg-base-100 shadow-xl h-72">
-              <figure class="m-0 relative" ><img class="" src=${news.thumbnail}  alt="" />
+              <figure class="m-0 relative h-44 w-full" ><img class="" src=${news.thumbnail}  alt="" />
                   <div class="absolute right-4 bottom-4 rounded l-2 bg-black text-white text-xs pr-2 pl-2">${(news?.others?.posted_date) ? convertSecToTime (news?.others?.posted_date) : ''}</div>
                   </figure>
               <div class="flex gap-2 mt-5 m-auto">
@@ -99,28 +96,10 @@ const handleCategory = async () => {
   };
   
   
-  // ==================changed here
-  
-  // const sort = (datas) => {
-  //   console.log(datas);
-  //   datas.sort((a, b) => {
-  //       console.log(a);
-  //       const x = parseInt(a.others.views.replace('K', '')) * 1000;
-  //       const y = parseInt(b.others.views.replace('K', '')) * 1000;
-  //       return y - x;
-  //   });
-  //   // je function theke card show kortechen sei function k call korte hbe (displayCard) er jaygay..
-  //   handleLoadNews(datas);
-  // };
-  
-  
   handleCategory();
   handleLoadNews("1000");
   
   document.getElementById('sorted-by-view').addEventListener('click', function () {
-    // sort(fullData);
-  
-  
     handleLoadNews(prevClickedSortedId, true)
   
     
